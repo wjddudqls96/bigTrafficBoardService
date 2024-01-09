@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean isDuplicated(String id) {
+    public boolean isDuplicatedId(String id) {
         return false;
     }
 
