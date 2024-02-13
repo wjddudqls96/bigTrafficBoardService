@@ -8,4 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface PostSearchMapper {
     public List<PostDto> selectPosts(PostSearchRequest postSearchRequest);
+    public List<PostDto> getPostsByTag(String tagName);
 }

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PostSearchService {
     List<PostDto> getPosts(PostSearchRequest postSearchRequest);
+    List<PostDto> getPostsByTagName(String tagName);
 }
