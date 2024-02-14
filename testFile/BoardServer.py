@@ -8,12 +8,12 @@ class BoardServer(HttpUser):
     wait_time = between(1, 2)
 
     def on_start(self):
-        self.client.post("/users/sign-in", json={"userId": "topojs9",
-                                                 "password": "123"})
+        self.client.post("/users/sign-in", json={"userId": "jybin96",
+                                                 "password": "1213"})
 
     @task(3)
     def view_item(self):
-        sortStatus = random.choice(["CATEGORIES", "NEWEST", "OLDEST", "HIGHPRICE", "LOWPRICE", "GRADE"])
+        sortStatus = random.choice(["CATEGORIES", "NEWEST", "OLDEST"])
         categoryId = random.randint(1, 10)
         name = '테스트 게시글'.join(str(random.randint(1, 10000)))
         headers = {'Content-Type': 'application/json'}

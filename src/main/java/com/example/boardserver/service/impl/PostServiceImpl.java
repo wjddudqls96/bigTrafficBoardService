@@ -42,11 +42,14 @@ public class PostServiceImpl implements PostService {
         if(memberInfo != null) {
             postMapper.register(postDto);
             Integer postId = postDto.getId();
-            for(int i = 0; i < postDto.getTagDtoList().size(); i++) {
-                TagDto tagDto = postDto.getTagDtoList().get(i);
-                tagMapper.register(tagDto);
-                Integer tagId = tagDto.getId();
-                tagMapper.createPostTag(tagId, postId);
+
+            if(postDto.getTagDtoList() != null) {
+                for(int i = 0; i < postDto.getTagDtoList().size(); i++) {
+                    TagDto tagDto = postDto.getTagDtoList().get(i);
+                    tagMapper.register(tagDto);
+                    Integer tagId = tagDto.getId();
+                    tagMapper.createPostTag(tagId, postId);
+                }
             }
         }
         else {
